@@ -1,5 +1,5 @@
 # Book Api gallery photos
 
-[![Build Status](https://travis-ci.org/elmer7186/book-api.svg?branch=develop)](https://travis-ci.org/elmer7186/book-api)
+![Java CI with Gradle](https://github.com/elmer7186/book-api/workflows/Java%20CI%20with%20Gradle/badge.svg)
 
 SpringBoot challenge project
