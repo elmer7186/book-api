@@ -3,6 +3,12 @@ server:
   servlet:
     context-path: /book
 
+wiremock:
+  enabled: true
+  server:
+    port: 9999
+    matchPort: 9090
+
 spring:
   application:
     name: book-api
@@ -38,5 +44,5 @@ feign:
 
 otp:
   notification:
-    subject: 'Activación de cuenta'
-    message: 'Su clave temporal de acceso es: {0}'
+    subject: 'Account activation'
+    message: 'You temporal password is: {0}'

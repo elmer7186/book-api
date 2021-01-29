@@ -43,6 +43,10 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	implementation 'org.flywaydb:flyway-core:5.2.4'
 
+	// local profile
+	compileOnly "com.github.tomakehurst:wiremock-jre8:2.27.2"
+	runtime "com.github.tomakehurst:wiremock-jre8:2.27.2"
+
 	// test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'junit:junit:4.13'
