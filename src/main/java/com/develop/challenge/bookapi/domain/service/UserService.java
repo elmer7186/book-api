@@ -17,13 +17,13 @@ public class UserService {
     private final NotificationExternalPort notificationExternalPort;
 
     public void requestActivation(String email) {
-        String temporalPassword = otpService.generate();
         userExternalPort.findByEmail(email).map(user -> {
+            String temporalPassword = otpService.generate();
             user.setEnable(true);
             userRepositoryPort.encryptPasswordAndSave(user, temporalPassword);
+            notificationExternalPort.sendOtpEmail(email, temporalPassword);
             return user;
         }).orElseThrow(() -> new DataNotFoundException(""));
-        notificationExternalPort.sendOtpEmail(email, temporalPassword);
     }
 
 }
