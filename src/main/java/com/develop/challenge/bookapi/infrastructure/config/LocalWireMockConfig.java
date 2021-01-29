@@ -32,10 +32,10 @@ public class LocalWireMockConfig {
     @Value("${server.port}")
     private String serverPort;
 
-    private static final String RESPONSE_USER_WAREHOUSE_BY_EMAIL = "/json/warehouse/user-with-test-email-response.json";
+    private static final String RESPONSE_USER_WAREHOUSE_BY_EMAIL = "__files/json/warehouse/user-with-test-email-response.json";
 
     // warehouse resources
-    private static final String URL_RESOURCE_USERS_WITH_EMAIL = "/users?email=test@test.com";
+    private static final String URL_RESOURCE_USERS_WITH_EMAIL = "/users?email=test.test.com";
 
     // notification resources
     private static final String URL_RESOURCE_NOTIFICATIONS = "/notifications";

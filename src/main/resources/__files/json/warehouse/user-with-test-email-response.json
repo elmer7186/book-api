@@ -1,23 +1,25 @@
-{
-  "id": 1,
-  "name": "pablo",
-  "username": "pablito",
-  "email": "test@test.com",
-  "phone": "123456789",
-  "website": "pablo.com",
-  "address": {
-    "street": "calle 123",
-    "suite": "abcd",
-    "city": "Medellín",
-    "zipcode": "MDE",
-    "geo": {
-      "lat": "23.000",
-      "lng": "39.988"
+[
+  {
+    "id": 1,
+    "name": "pablo",
+    "username": "pablito",
+    "email": "test@test.com",
+    "phone": "123456789",
+    "website": "pablo.com",
+    "address": {
+      "street": "calle 123",
+      "suite": "abcd",
+      "city": "Medellín",
+      "zipcode": "MDE",
+      "geo": {
+        "lat": "23.000",
+        "lng": "39.988"
+      }
+    },
+    "company": {
+      "name": "sin company",
+      "catchPhrase": "aksdjh",
+      "bs": "ui34"
     }
-  },
-  "company": {
-    "name": "sin company",
-    "catchPhrase": "aksdjh",
-    "bs": "ui34"
   }
-}
+]
