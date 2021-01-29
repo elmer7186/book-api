@@ -5,10 +5,9 @@ public interface NotificationExternalPort {
     /**
      * Send email method
      *
-     * @param recipient email recipient
-     * @param subject   email subject
-     * @param message   email message content
+     * @param email recipient
+     * @param otp   temporal one time password
      */
-    void sendEmail(String recipient, String subject, String message);
+    void sendOtpEmail(String email, String otp);
 
 }

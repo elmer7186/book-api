@@ -35,3 +35,8 @@ feign:
     rootUrl: http://localhost:9999/
     resources:
       notifications: notifications
+
+otp:
+  notification:
+    subject: 'Activación de cuenta'
+    message: 'Su clave temporal de acceso es: {0}'

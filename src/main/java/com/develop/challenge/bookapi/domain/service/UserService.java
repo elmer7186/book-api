@@ -1,6 +1,6 @@
 package com.develop.challenge.bookapi.domain.service;
 
-import com.develop.challenge.bookapi.domain.model.User;
+import com.develop.challenge.bookapi.domain.exception.DataNotFoundException;
 import com.develop.challenge.bookapi.domain.port.external.NotificationExternalPort;
 import com.develop.challenge.bookapi.domain.port.external.UserExternalPort;
 import com.develop.challenge.bookapi.domain.port.repository.UserRepositoryPort;
@@ -18,8 +18,12 @@ public class UserService {
 
     public void requestActivation(String email) {
         String temporalPassword = otpService.generate();
-        userExternalPort.findByEmail(email).map(user -> new User()).orElseThrow(RuntimeException::new);
-        notificationExternalPort.sendEmail("", "", temporalPassword);
+        userExternalPort.findByEmail(email).map(user -> {
+            user.setEnable(true);
+            userRepositoryPort.encryptPasswordAndSave(user, temporalPassword);
+            return user;
+        }).orElseThrow(() -> new DataNotFoundException(""));
+        notificationExternalPort.sendOtpEmail(email, temporalPassword);
     }
 
 }
