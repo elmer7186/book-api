@@ -16,4 +16,12 @@ public interface UserRepositoryMapper {
      */
     UserEntity domainToEntity(User user);
 
+    /**
+     * User mapper entity to domain
+     *
+     * @param userEntity user entity object
+     * @return domain model
+     */
+    User entityToDomain(UserEntity userEntity);
+
 }
