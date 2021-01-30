@@ -17,15 +17,15 @@ public class UserEntity {
     @Id
     private long id;
 
-    @Column(name = "USER_NAME", nullable = false)
-    private String userName;
+    @Column(nullable = false)
+    private String username;
 
     @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private RoleType rol;
+    private RoleType role;
 
     @Column(nullable = false)
     private boolean enabled;

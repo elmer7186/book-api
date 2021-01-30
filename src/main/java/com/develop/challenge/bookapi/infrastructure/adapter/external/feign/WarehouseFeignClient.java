@@ -30,7 +30,9 @@ public interface WarehouseFeignClient {
      * @return users list
      */
     @GetMapping(
-            value = "${feign.warehouse.resources.users}", produces = APPLICATION_JSON_VALUE
+            value = "${feign.warehouse.resources.users}",
+            produces = APPLICATION_JSON_VALUE,
+            consumes = APPLICATION_JSON_VALUE
     )
     List<UserExternalDto> findUsersByEmail(@RequestParam String email);
 

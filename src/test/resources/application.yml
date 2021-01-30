@@ -31,12 +31,12 @@ spring:
 feign:
   warehouse:
     name: WAREHOUSE-API
-    rootUrl: http://localhost:9999/
+    rootUrl: http://localhost:9999
     resources:
       users: users
   email:
     name: EMAIL-API
-    rootUrl: http://localhost:9999/
+    rootUrl: http://localhost:9999
     resources:
       notifications: notifications
 

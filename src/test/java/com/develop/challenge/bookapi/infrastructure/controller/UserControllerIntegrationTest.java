@@ -29,7 +29,7 @@ class UserControllerIntegrationTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    public static final String USER_EMAIL = "test.test.com";
+    public static final String USER_EMAIL = "test@test.com";
 
     @Test
     void shouldRequestActivationWhenItsCalled() throws Exception {
