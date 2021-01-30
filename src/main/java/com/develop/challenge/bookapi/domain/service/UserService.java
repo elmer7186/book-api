@@ -34,4 +34,14 @@ public class UserService {
         log.info("Activation requested for user with ID [{}]", savedUser.getId());
     }
 
+    public void changePassword(String username, String oldPassword, String newPassword) {
+        User updatedUser = userRepositoryPort.findByUsernameAndPassword(username, oldPassword).map(user -> {
+            user.setEnable(true);
+            userRepositoryPort.encryptPasswordAndSave(user, newPassword);
+            return user;
+        }).orElseThrow(() -> new DataNotFoundException(NotificationCodeType.NOT_FOUND_CREDENTIALS_USER));
+
+        log.info("User password with ID [{}] was changed", updatedUser.getId());
+    }
+
 }

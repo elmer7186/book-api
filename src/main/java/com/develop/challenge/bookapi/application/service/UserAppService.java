@@ -1,5 +1,6 @@
 package com.develop.challenge.bookapi.application.service;
 
+import com.develop.challenge.bookapi.application.dto.PasswordResetDto;
 import com.develop.challenge.bookapi.application.dto.UserActivationDto;
 import com.develop.challenge.bookapi.domain.service.UserService;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,11 @@ public class UserAppService {
 
     public void requestActivation(UserActivationDto userActivationDto) {
         userService.requestActivation(userActivationDto.getEmail());
+    }
+
+    public void changePassword(PasswordResetDto passwordResetDto) {
+        userService.changePassword(passwordResetDto.getUsername(),
+                passwordResetDto.getOldPassword(), passwordResetDto.getNewPassword());
     }
 
 }

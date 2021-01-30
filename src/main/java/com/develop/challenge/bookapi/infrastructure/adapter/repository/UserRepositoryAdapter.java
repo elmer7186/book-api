@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 @AllArgsConstructor
 public class UserRepositoryAdapter implements UserRepositoryPort {
@@ -25,5 +27,16 @@ public class UserRepositoryAdapter implements UserRepositoryPort {
     public void encryptPasswordAndSave(User user, String password) {
         user.setPassword(passwordEncoder.encode(password));
         save(user);
+    }
+
+    @Override
+    public Optional<User> findByUsernameAndPassword(String username, String password) {
+        return Optional.ofNullable(userJpaRepository.findByUsername(username))
+                .map(userEntity -> {
+                    if (passwordEncoder.matches(password, userEntity.getPassword())) {
+                        return userRepositoryMapper.entityToDomain(userEntity);
+                    }
+                    return null;
+                });
     }
 }
