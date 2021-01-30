@@ -39,4 +39,10 @@ public class UserRepositoryAdapter implements UserRepositoryPort {
                     return null;
                 });
     }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        return Optional.ofNullable(userRepositoryMapper.entityToDomain(
+                userJpaRepository.findByUsername(username)));
+    }
 }
