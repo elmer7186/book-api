@@ -3,6 +3,9 @@ package com.develop.challenge.bookapi.infrastructure.controller.advice;
 import com.develop.challenge.bookapi.domain.exception.BusinessException;
 import com.develop.challenge.bookapi.domain.exception.DataNotFoundException;
 import com.develop.challenge.bookapi.domain.exception.NotificationCodeType;
+import com.develop.challenge.bookapi.infrastructure.exception.TechnicalException;
+import com.develop.challenge.bookapi.infrastructure.exception.TechnicalNotificationCodeType;
+import com.develop.challenge.bookapi.infrastructure.exception.UnauthorizedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +26,8 @@ public class GeneralAdviceController extends ResponseEntityExceptionHandler {
 
     static {
         ERROR_CATALOG.add(new ErrorDescriptor(DataNotFoundException.class, HttpStatus.NOT_FOUND));
+        ERROR_CATALOG.add(new ErrorDescriptor(UnauthorizedException.class,
+                HttpStatus.UNAUTHORIZED));
     }
 
     private ErrorDescriptor findDescriptorByException(Exception exception) {
@@ -40,6 +45,15 @@ public class GeneralAdviceController extends ResponseEntityExceptionHandler {
         ErrorDescriptor errorDescriptor = findDescriptorByException(businessException);
         NotificationCodeType notificationCode = businessException.getNotificationCode();
         Notification notification = new Notification(notificationCode.getMessage(), notificationCode.getCode());
+        return ResponseEntity.status(errorDescriptor.getHttpStatus()).body(notification);
+    }
+
+    @ExceptionHandler(TechnicalException.class)
+    public final ResponseEntity<Notification> handleBusinessExceptions(TechnicalException technicalException) {
+        log.error(technicalException.getMessage(), technicalException);
+        ErrorDescriptor errorDescriptor = findDescriptorByException(technicalException);
+        TechnicalNotificationCodeType technicalNotificationCode = technicalException.getTechnicalNotificationCode();
+        Notification notification = new Notification(technicalNotificationCode.getMessage(), technicalNotificationCode.getCode());
         return ResponseEntity.status(errorDescriptor.getHttpStatus()).body(notification);
     }
 
