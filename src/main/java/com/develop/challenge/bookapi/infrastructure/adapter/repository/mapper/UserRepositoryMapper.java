@@ -1,6 +1,6 @@
 package com.develop.challenge.bookapi.infrastructure.adapter.repository.mapper;
 
-import com.develop.challenge.bookapi.domain.model.User;
+import com.develop.challenge.bookapi.domain.model.user.User;
 import com.develop.challenge.bookapi.infrastructure.adapter.repository.entity.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

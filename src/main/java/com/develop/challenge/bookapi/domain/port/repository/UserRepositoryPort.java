@@ -1,6 +1,6 @@
 package com.develop.challenge.bookapi.domain.port.repository;
 
-import com.develop.challenge.bookapi.domain.model.User;
+import com.develop.challenge.bookapi.domain.model.user.User;
 
 import java.util.Optional;
 
@@ -22,11 +22,19 @@ public interface UserRepositoryPort {
     void encryptPasswordAndSave(User user, String password);
 
     /**
-     * Find user by username
+     * Find user by username and password
      *
      * @param username username value
      * @param password user password
      * @return optional domain model
      */
     Optional<User> findByUsernameAndPassword(String username, String password);
+
+    /**
+     * Find user by username
+     *
+     * @param username username value
+     * @return optional domain model
+     */
+    Optional<User> findByUsername(String username);
 }

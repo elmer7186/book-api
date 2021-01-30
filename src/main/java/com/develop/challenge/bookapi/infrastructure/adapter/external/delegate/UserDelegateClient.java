@@ -19,7 +19,7 @@ public class UserDelegateClient {
     }
 
     public Optional<UserExternalDto> findByEmail(String email) {
-        return warehouseFeignClient.findUsersByEmail(email).stream().filter(user -> user.getEmail().equals(email)).findFirst();
+        return warehouseFeignClient.findUsersByEmail(email).stream().findFirst();
     }
 
 }
