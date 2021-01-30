@@ -1,6 +1,6 @@
 package com.develop.challenge.bookapi.infrastructure.adapter.external;
 
-import com.develop.challenge.bookapi.domain.model.User;
+import com.develop.challenge.bookapi.domain.model.user.User;
 import com.develop.challenge.bookapi.domain.port.external.UserExternalPort;
 import com.develop.challenge.bookapi.infrastructure.adapter.external.delegate.UserDelegateClient;
 import com.develop.challenge.bookapi.infrastructure.adapter.external.mapper.UserExternalMapper;
