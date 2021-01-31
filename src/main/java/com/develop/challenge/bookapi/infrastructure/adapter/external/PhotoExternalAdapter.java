@@ -5,14 +5,12 @@ import com.develop.challenge.bookapi.domain.port.external.PhotoExternalPort;
 import com.develop.challenge.bookapi.infrastructure.adapter.external.delegate.PhotoDelegateClient;
 import com.develop.challenge.bookapi.infrastructure.adapter.external.mapper.PhotoExternalMapper;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @AllArgsConstructor
-@Setter
-@Getter
+@Component
 public class PhotoExternalAdapter implements PhotoExternalPort {
 
     private final PhotoExternalMapper photoExternalMapper;
