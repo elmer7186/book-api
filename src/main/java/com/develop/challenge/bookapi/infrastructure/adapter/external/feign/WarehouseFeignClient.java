@@ -1,6 +1,7 @@
 package com.develop.challenge.bookapi.infrastructure.adapter.external.feign;
 
 import com.develop.challenge.bookapi.infrastructure.adapter.external.dto.album.AlbumExternalDto;
+import com.develop.challenge.bookapi.infrastructure.adapter.external.dto.photo.PhotoExternalDto;
 import com.develop.challenge.bookapi.infrastructure.adapter.external.dto.user.UserExternalDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,4 +51,14 @@ public interface WarehouseFeignClient {
     List<AlbumExternalDto> findAlbumsByIdAndUserId(@RequestParam long id,
                                                    @RequestParam long userId);
 
+    /**
+     * Find all photos from external service
+     *
+     * @return photos list
+     */
+    @GetMapping(
+            value = "${feign.warehouse.resources.photos}",
+            produces = APPLICATION_JSON_VALUE
+    )
+    List<PhotoExternalDto> findAllPhotos();
 }

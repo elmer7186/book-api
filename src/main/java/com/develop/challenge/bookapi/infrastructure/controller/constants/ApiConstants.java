@@ -13,5 +13,6 @@ public class ApiConstants {
     public static final String RESOURCE_USERS_CHANGE_PASSWORD = "/password";
 
     public static final String SHARED_V1 = ROOT_API_V1 + "/shared";
+    public static final String PHOTOS_V1 = ROOT_API_V1 + "/photos";
 
 }
