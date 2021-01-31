@@ -35,6 +35,8 @@ feign:
     resources:
       users: users
       albums: albums
+      photos: photos
+      comments: comments
   email:
     name: EMAIL-API
     rootUrl: http://localhost:9999
