@@ -1,7 +1,7 @@
 package com.develop.challenge.bookapi.infrastructure.controller;
 
-import com.develop.challenge.bookapi.application.dto.PasswordResetDto;
-import com.develop.challenge.bookapi.application.dto.UserActivationDto;
+import com.develop.challenge.bookapi.application.dto.user.PasswordResetDto;
+import com.develop.challenge.bookapi.application.dto.user.UserActivationDto;
 import com.develop.challenge.bookapi.infrastructure.controller.constants.ApiConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.develop.challenge.bookapi.application.dto;
+package com.develop.challenge.bookapi.application.dto.shared;
 
 import com.develop.challenge.bookapi.domain.model.shared.PrivilegeType;
 import lombok.AllArgsConstructor;

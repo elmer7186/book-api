@@ -1,6 +1,6 @@
 package com.develop.challenge.bookapi.application.service;
 
-import com.develop.challenge.bookapi.application.dto.SharedDto;
+import com.develop.challenge.bookapi.application.dto.shared.SharedDto;
 import com.develop.challenge.bookapi.domain.model.shared.Shared;
 import com.develop.challenge.bookapi.domain.service.SharedService;
 import lombok.AllArgsConstructor;
