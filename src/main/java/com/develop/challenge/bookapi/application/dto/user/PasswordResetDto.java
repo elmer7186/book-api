@@ -1,4 +1,4 @@
-package com.develop.challenge.bookapi.application.dto;
+package com.develop.challenge.bookapi.application.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
