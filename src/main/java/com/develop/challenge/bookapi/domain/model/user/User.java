@@ -1,4 +1,4 @@
-package com.develop.challenge.bookapi.domain.model;
+package com.develop.challenge.bookapi.domain.model.user;
 
 import lombok.Getter;
 import lombok.Setter;

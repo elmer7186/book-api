@@ -3,6 +3,8 @@ package com.develop.challenge.bookapi.infrastructure.controller.advice;
 import com.develop.challenge.bookapi.domain.exception.BusinessException;
 import com.develop.challenge.bookapi.domain.exception.DataNotFoundException;
 import com.develop.challenge.bookapi.domain.exception.NotificationCodeType;
+import com.develop.challenge.bookapi.domain.exception.OperationNotAllowedException;
+import com.develop.challenge.bookapi.domain.exception.RequiredValueException;
 import com.develop.challenge.bookapi.infrastructure.exception.TechnicalException;
 import com.develop.challenge.bookapi.infrastructure.exception.TechnicalNotificationCodeType;
 import com.develop.challenge.bookapi.infrastructure.exception.UnauthorizedException;
@@ -25,9 +27,14 @@ public class GeneralAdviceController extends ResponseEntityExceptionHandler {
     private static final List<ErrorDescriptor> ERROR_CATALOG = new ArrayList<>();
 
     static {
-        ERROR_CATALOG.add(new ErrorDescriptor(DataNotFoundException.class, HttpStatus.NOT_FOUND));
+        ERROR_CATALOG.add(new ErrorDescriptor(DataNotFoundException.class,
+                HttpStatus.NOT_FOUND));
         ERROR_CATALOG.add(new ErrorDescriptor(UnauthorizedException.class,
                 HttpStatus.UNAUTHORIZED));
+        ERROR_CATALOG.add(new ErrorDescriptor(RequiredValueException.class,
+                HttpStatus.PRECONDITION_REQUIRED));
+        ERROR_CATALOG.add(new ErrorDescriptor(OperationNotAllowedException.class,
+                HttpStatus.FORBIDDEN));
     }
 
     private ErrorDescriptor findDescriptorByException(Exception exception) {

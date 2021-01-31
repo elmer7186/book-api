@@ -1,6 +1,6 @@
 package com.develop.challenge.bookapi.domain.port.external;
 
-import com.develop.challenge.bookapi.domain.model.User;
+import com.develop.challenge.bookapi.domain.model.user.User;
 
 import java.util.List;
 import java.util.Optional;

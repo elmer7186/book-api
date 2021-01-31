@@ -1,6 +1,6 @@
 package com.develop.challenge.bookapi.infrastructure.adapter.repository;
 
-import com.develop.challenge.bookapi.domain.model.User;
+import com.develop.challenge.bookapi.domain.model.user.User;
 import com.develop.challenge.bookapi.domain.port.repository.UserRepositoryPort;
 import com.develop.challenge.bookapi.infrastructure.adapter.repository.jpa.UserJpaRepository;
 import com.develop.challenge.bookapi.infrastructure.adapter.repository.mapper.UserRepositoryMapper;

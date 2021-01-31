@@ -2,8 +2,8 @@ package com.develop.challenge.bookapi.domain.service;
 
 import com.develop.challenge.bookapi.domain.exception.DataNotFoundException;
 import com.develop.challenge.bookapi.domain.exception.NotificationCodeType;
-import com.develop.challenge.bookapi.domain.model.RoleType;
-import com.develop.challenge.bookapi.domain.model.User;
+import com.develop.challenge.bookapi.domain.model.user.RoleType;
+import com.develop.challenge.bookapi.domain.model.user.User;
 import com.develop.challenge.bookapi.domain.port.external.NotificationExternalPort;
 import com.develop.challenge.bookapi.domain.port.external.UserExternalPort;
 import com.develop.challenge.bookapi.domain.port.repository.UserRepositoryPort;

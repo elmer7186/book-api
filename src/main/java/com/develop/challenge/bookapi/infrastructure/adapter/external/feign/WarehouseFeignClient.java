@@ -1,5 +1,6 @@
 package com.develop.challenge.bookapi.infrastructure.adapter.external.feign;
 
+import com.develop.challenge.bookapi.infrastructure.adapter.external.dto.album.AlbumExternalDto;
 import com.develop.challenge.bookapi.infrastructure.adapter.external.dto.user.UserExternalDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,8 @@ public interface WarehouseFeignClient {
      * @return users list
      */
     @GetMapping(
-            value = "${feign.warehouse.resources.users}", produces = APPLICATION_JSON_VALUE
+            value = "${feign.warehouse.resources.users}",
+            produces = APPLICATION_JSON_VALUE
     )
     List<UserExternalDto> findAllUsers();
 
@@ -35,5 +37,17 @@ public interface WarehouseFeignClient {
             consumes = APPLICATION_JSON_VALUE
     )
     List<UserExternalDto> findUsersByEmail(@RequestParam String email);
+
+    /**
+     * Find albums related with id and property user id
+     *
+     * @return albums list
+     */
+    @GetMapping(
+            value = "${feign.warehouse.resources.albums}",
+            consumes = APPLICATION_JSON_VALUE
+    )
+    List<AlbumExternalDto> findAlbumsByIdAndUserId(@RequestParam long id,
+                                                   @RequestParam long userId);
 
 }

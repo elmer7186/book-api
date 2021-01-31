@@ -1,6 +1,6 @@
 package com.develop.challenge.bookapi.infrastructure.config.security;
 
-import com.develop.challenge.bookapi.domain.model.User;
+import com.develop.challenge.bookapi.domain.model.user.User;
 import com.develop.challenge.bookapi.domain.port.repository.UserRepositoryPort;
 import com.develop.challenge.bookapi.infrastructure.exception.TechnicalNotificationCodeType;
 import com.develop.challenge.bookapi.infrastructure.exception.UnauthorizedException;
@@ -28,8 +28,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(user.getRole().name()));
 
-        return new org.springframework.security.core.userdetails.User(username,
-                user.getPassword(), user.isEnable(), true, true,
-                true, authorities);
+        return new AuthenticatedUser(username,
+                user.getPassword(), user.getId(), user.isEnable(), authorities);
     }
 }

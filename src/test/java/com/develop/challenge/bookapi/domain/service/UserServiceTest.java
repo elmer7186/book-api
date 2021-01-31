@@ -1,24 +1,16 @@
 package com.develop.challenge.bookapi.domain.service;
 
 import com.develop.challenge.bookapi.domain.exception.DataNotFoundException;
-import com.develop.challenge.bookapi.domain.model.User;
+import com.develop.challenge.bookapi.domain.model.user.User;
 import com.develop.challenge.bookapi.domain.port.external.NotificationExternalPort;
 import com.develop.challenge.bookapi.domain.port.external.UserExternalPort;
 import com.develop.challenge.bookapi.domain.port.repository.UserRepositoryPort;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;

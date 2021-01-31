@@ -1,6 +1,6 @@
 package com.develop.challenge.bookapi.infrastructure.adapter.repository.entity;
 
-import com.develop.challenge.bookapi.domain.model.RoleType;
+import com.develop.challenge.bookapi.domain.model.user.RoleType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
