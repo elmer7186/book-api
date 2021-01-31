@@ -5,6 +5,8 @@ import com.develop.challenge.bookapi.infrastructure.adapter.external.dto.album.A
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
+import java.util.List;
+
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface AlbumExternalMapper {
 
@@ -15,5 +17,13 @@ public interface AlbumExternalMapper {
      * @return domain model
      */
     Album dtoToDomain(AlbumExternalDto albumExternalDto);
+
+    /**
+     * Mapper for album external Dto to domain model list
+     *
+     * @param albumExternalDtos dto object list
+     * @return domain model list
+     */
+    List<Album> dtoToDomainList(List<AlbumExternalDto> albumExternalDtos);
 
 }
