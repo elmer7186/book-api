@@ -7,6 +7,7 @@ import com.develop.challenge.bookapi.infrastructure.adapter.external.mapper.Albu
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -18,6 +19,12 @@ public class AlbumExternalAdapter implements AlbumExternalPort {
 
     @Override
     public Optional<Album> findByIdAndUserId(long id, long userId) {
-        return albumDelegateClient.findAlbumByIdAndUserId(id, userId).map(albumExternalMapper::dtoToDomain);
+        return albumDelegateClient.findAlbumByIdAndUserId(id, userId)
+                .map(albumExternalMapper::dtoToDomain);
+    }
+
+    @Override
+    public List<Album> findAll() {
+        return albumExternalMapper.dtoToDomainList(albumDelegateClient.findAll());
     }
 }

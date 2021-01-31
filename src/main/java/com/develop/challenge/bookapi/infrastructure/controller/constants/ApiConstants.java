@@ -14,5 +14,6 @@ public class ApiConstants {
 
     public static final String SHARED_V1 = ROOT_API_V1 + "/shared";
     public static final String PHOTOS_V1 = ROOT_API_V1 + "/photos";
+    public static final String ALBUMS_V1 = ROOT_API_V1 + "/albums";
 
 }

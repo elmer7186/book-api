@@ -61,4 +61,15 @@ public interface WarehouseFeignClient {
             produces = APPLICATION_JSON_VALUE
     )
     List<PhotoExternalDto> findAllPhotos();
+
+    /**
+     * Find all albums from external service
+     *
+     * @return albums list
+     */
+    @GetMapping(
+            value = "${feign.warehouse.resources.albums}",
+            produces = APPLICATION_JSON_VALUE
+    )
+    List<AlbumExternalDto> findAllAlbums();
 }

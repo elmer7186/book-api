@@ -5,6 +5,7 @@ import com.develop.challenge.bookapi.infrastructure.adapter.external.feign.Wareh
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -15,6 +16,10 @@ public class AlbumDelegateClient {
 
     public Optional<AlbumExternalDto> findAlbumByIdAndUserId(long id, long userId) {
         return warehouseFeignClient.findAlbumsByIdAndUserId(id, userId).stream().findFirst();
+    }
+
+    public List<AlbumExternalDto> findAll() {
+        return warehouseFeignClient.findAllAlbums();
     }
 
 }
