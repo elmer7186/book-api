@@ -29,4 +29,12 @@ public interface UserExternalPort {
      * @return domain model list
      */
     List<User> findByUserIdList(List<Long> userIds);
+
+    /**
+     * Find user by id
+     *
+     * @param id user id
+     * @return domain model
+     */
+    Optional<User> findById(long id);
 }

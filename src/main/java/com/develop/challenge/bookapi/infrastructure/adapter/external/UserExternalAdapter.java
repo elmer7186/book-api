@@ -35,4 +35,9 @@ public class UserExternalAdapter implements UserExternalPort {
                         .filter(userExternalDto -> userIds.contains(userExternalDto.getId()))
                         .collect(Collectors.toList()));
     }
+
+    @Override
+    public Optional<User> findById(long id) {
+        return userDelegateClient.findById(id).map(userExternalMapper::dtoToDomain);
+    }
 }
