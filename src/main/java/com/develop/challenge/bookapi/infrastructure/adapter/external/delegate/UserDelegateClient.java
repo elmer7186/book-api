@@ -22,4 +22,8 @@ public class UserDelegateClient {
         return warehouseFeignClient.findUsersByEmail(email).stream().findFirst();
     }
 
+    public Optional<UserExternalDto> findById(long id) {
+        return Optional.ofNullable(warehouseFeignClient.findUserById(id));
+    }
+
 }
