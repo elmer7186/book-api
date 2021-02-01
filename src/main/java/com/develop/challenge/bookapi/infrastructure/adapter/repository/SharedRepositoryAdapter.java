@@ -7,6 +7,8 @@ import com.develop.challenge.bookapi.infrastructure.adapter.repository.mapper.Sh
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Component
 public class SharedRepositoryAdapter implements SharedRepositoryPort {
@@ -17,6 +19,12 @@ public class SharedRepositoryAdapter implements SharedRepositoryPort {
     @Override
     public void save(Shared shared) {
         sharedJpaRepository.save(sharedRepositoryMapper.domainToEntity(shared));
+    }
+
+    @Override
+    public List<Shared> findByAlbumId(long albumId) {
+        return sharedRepositoryMapper
+                .entityToDomainList(sharedJpaRepository.findByAlbumId(albumId));
     }
 
 }
