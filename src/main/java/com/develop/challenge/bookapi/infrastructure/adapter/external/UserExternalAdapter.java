@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Component
@@ -25,5 +26,13 @@ public class UserExternalAdapter implements UserExternalPort {
     @Override
     public Optional<User> findByEmail(String email) {
         return userDelegateClient.findByEmail(email).map(userExternalMapper::dtoToDomain);
+    }
+
+    @Override
+    public List<User> findByUserIdList(List<Long> userIds) {
+        return userExternalMapper.dtoToDomainList(
+                userDelegateClient.findAll().stream()
+                        .filter(userExternalDto -> userIds.contains(userExternalDto.getId()))
+                        .collect(Collectors.toList()));
     }
 }
