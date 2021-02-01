@@ -12,7 +12,7 @@ public interface AlbumExternalPort {
      *
      * @param id     album id
      * @param userId user id
-     * @return optional album value
+     * @return domain model list
      */
     Optional<Album> findByIdAndUserId(long id, long userId);
 
@@ -23,4 +23,11 @@ public interface AlbumExternalPort {
      */
     List<Album> findAll();
 
+    /**
+     * Search album by user id from external service
+     *
+     * @param userId user id
+     * @return domain model list
+     */
+    List<Album> findByUserId(long userId);
 }
