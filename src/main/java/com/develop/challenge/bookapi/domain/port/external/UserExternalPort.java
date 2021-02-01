@@ -22,4 +22,11 @@ public interface UserExternalPort {
      */
     Optional<User> findByEmail(String email);
 
+    /**
+     * Find user with any user id
+     *
+     * @param userIds user id list
+     * @return domain model list
+     */
+    List<User> findByUserIdList(List<Long> userIds);
 }
