@@ -19,12 +19,17 @@ public class AlbumExternalAdapter implements AlbumExternalPort {
 
     @Override
     public Optional<Album> findByIdAndUserId(long id, long userId) {
-        return albumDelegateClient.findAlbumByIdAndUserId(id, userId)
+        return albumDelegateClient.findByIdAndUserId(id, userId)
                 .map(albumExternalMapper::dtoToDomain);
     }
 
     @Override
     public List<Album> findAll() {
         return albumExternalMapper.dtoToDomainList(albumDelegateClient.findAll());
+    }
+
+    @Override
+    public List<Album> findByUserId(long userId) {
+        return albumExternalMapper.dtoToDomainList(albumDelegateClient.findByUserId(userId));
     }
 }

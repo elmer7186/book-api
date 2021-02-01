@@ -19,4 +19,8 @@ public class AlbumAppService {
         return albumAppMapper.domainToDtoList(albumExternalPort.findAll());
     }
 
+    public List<AlbumDto> findByUserId(long userId) {
+        return albumAppMapper.domainToDtoList(albumExternalPort.findByUserId(userId));
+    }
+
 }

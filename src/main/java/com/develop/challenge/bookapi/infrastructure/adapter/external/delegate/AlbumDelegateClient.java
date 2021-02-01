@@ -14,12 +14,16 @@ public class AlbumDelegateClient {
 
     private WarehouseFeignClient warehouseFeignClient;
 
-    public Optional<AlbumExternalDto> findAlbumByIdAndUserId(long id, long userId) {
+    public Optional<AlbumExternalDto> findByIdAndUserId(long id, long userId) {
         return warehouseFeignClient.findAlbumsByIdAndUserId(id, userId).stream().findFirst();
     }
 
     public List<AlbumExternalDto> findAll() {
         return warehouseFeignClient.findAllAlbums();
+    }
+
+    public List<AlbumExternalDto> findByUserId(long userId) {
+        return warehouseFeignClient.findAlbumsByUserId(userId);
     }
 
 }
