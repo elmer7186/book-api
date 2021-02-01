@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Component
@@ -19,5 +20,14 @@ public class PhotoExternalAdapter implements PhotoExternalPort {
     @Override
     public List<Photo> findAll() {
         return photoExternalMapper.dtoToDomainList(photoDelegateClient.findAll());
+    }
+
+    @Override
+    public List<Photo> findByAnyAlbumId(List<Long> albumIds) {
+        return photoExternalMapper.dtoToDomainList(
+                photoDelegateClient.findAll()
+                        .stream()
+                        .filter(photoExternalDto -> albumIds.contains(photoExternalDto.getAlbumId()))
+                        .collect(Collectors.toList()));
     }
 }

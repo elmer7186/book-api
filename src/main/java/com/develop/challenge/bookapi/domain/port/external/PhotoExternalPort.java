@@ -13,4 +13,11 @@ public interface PhotoExternalPort {
      */
     List<Photo> findAll();
 
+    /**
+     * Find photos albums from external service
+     *
+     * @param albumIds album ids list
+     * @return domain model list
+     */
+    List<Photo> findByAnyAlbumId(List<Long> albumIds);
 }
