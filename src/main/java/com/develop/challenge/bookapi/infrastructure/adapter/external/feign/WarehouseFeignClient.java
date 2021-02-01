@@ -72,4 +72,15 @@ public interface WarehouseFeignClient {
             produces = APPLICATION_JSON_VALUE
     )
     List<AlbumExternalDto> findAllAlbums();
+
+    /**
+     * Find albums related with property user id
+     *
+     * @return albums list
+     */
+    @GetMapping(
+            value = "${feign.warehouse.resources.albums}",
+            consumes = APPLICATION_JSON_VALUE
+    )
+    List<AlbumExternalDto> findAlbumsByUserId(@RequestParam long userId);
 }
